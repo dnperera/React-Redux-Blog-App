@@ -1,12 +1,17 @@
 import React from "react";
 import { mount } from "enzyme"; //here we use fulldom test method
+import Root from "Root";
 import CommentBox from "components/CommentBox";
 
 let wrapped;
 
 //Initialise the component
 beforeEach(() => {
-  wrapped = mount(<CommentBox />);
+  wrapped = mount(
+    <Root>
+      <CommentBox />
+    </Root>
+  );
 });
 
 //unmount component from the virtual dom after test executed
