@@ -1,2 +1,2 @@
 export const SAVE_COMMENT = "save_comment";
-export const GET_COMMENTS = "get_comments";
+export const FETCH_COMMENTS = "fetch_comments";
