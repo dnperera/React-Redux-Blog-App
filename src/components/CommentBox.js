@@ -19,6 +19,21 @@ class CommentBox extends Component {
       comment: ""
     });
   };
+
+  //active immediately component mount
+  componentDidMount() {
+    this.isUserLoggedIn();
+  }
+  //active immediately when component did update
+  componentDidUpdate() {
+    this.isUserLoggedIn();
+  }
+
+  isUserLoggedIn() {
+    if (!this.props.auth) {
+      this.props.history.push("/");
+    }
+  }
   render() {
     return (
       <div>
@@ -40,7 +55,13 @@ class CommentBox extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    auth: state.auth
+  };
+};
 export default connect(
-  null,
+  mapStateToProps,
   actions
 )(CommentBox);
