@@ -36,3 +36,9 @@ exports.signup = function(req, res, next) {
     });
   });
 };
+
+exports.signIn = function(req, res, next) {
+  //at this point , user is already verified
+  //now generate the token for the user
+  res.send({ token: tokenForValidUser(req.user) });
+};

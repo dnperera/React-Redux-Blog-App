@@ -16,7 +16,7 @@ const userSchema = new Schema({
   }
 });
 
-//add on Save Hook to encrypt password before save
+//add on Save pre Hook to encrypt password before save
 userSchema.pre("save", function(next) {
   //get the access to current user model
   const user = this;
@@ -36,6 +36,15 @@ userSchema.pre("save", function(next) {
     });
   });
 });
+//add a method 'comparepassword' to the user schema
+userSchema.methods.comparePassword = function(userEnteredPassword, callback) {
+  bcrypt.compare(userEnteredPassword, this.password, function(err, isMatch) {
+    if (err) {
+      return callback(err);
+    }
+    callback(null, isMatch);
+  });
+};
 //Create the model class
 const modelClass = mongoose.model("User", userSchema);
 
