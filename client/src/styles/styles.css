@@ -1,0 +1,82 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: bisque;
+}
+
+nav {
+  width: 100%;
+  padding: 2rem;
+  background-color: cadetblue;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+}
+nav ul li {
+  margin: 1rem;
+  padding: 1rem 2rem;
+  background-color: burlywood;
+  font-size: 2rem;
+  border: 0.1rem solid #000;
+  -moz-box-shadow: inset 0 0 10px #000000;
+  -webkit-box-shadow: inset 0 0 10px #000000;
+  box-shadow: inset 0 0 10px #000000;
+}
+nav ul li a {
+  text-decoration: none;
+  color: black;
+}
+.container {
+  width: 90%;
+  margin: 0 auto;
+  border: 0.1rem solid black;
+  height: 50rem;
+}
+.welcome_message {
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+fieldset {
+  border: none;
+  margin: 3rem;
+}
+
+fieldset label {
+  padding: 0 2rem;
+  font-size: 2rem;
+}
+fieldset input {
+  padding: 1rem;
+  border: none;
+}
+button {
+  margin: 0 5rem;
+  padding: 1rem 2rem;
+  background-color: #0b90e9;
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.5rem;
+  cursor: pointer;
+  outline: none;
+}
+.error {
+  margin: 0 1rem;
+  padding: 1rem 4rem;
+  font-size: 2rem;
+  font-weight: 800;
+  color: crimson;
+}
