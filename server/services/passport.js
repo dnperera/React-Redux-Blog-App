@@ -36,6 +36,7 @@ const localLogin = new LocalStrategy(localOptions, function(
   });
 });
 //Setup options for JWT strategy
+console.log("Header token", ExtractJwt.fromHeader("authorization"));
 const jwtOptions = {
   jwtFromRequest: ExtractJwt.fromHeader("authorization"),
   secretOrKey: config.secret

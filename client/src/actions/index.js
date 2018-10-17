@@ -15,6 +15,7 @@ export const signup = ({ email, password }, callback) => async dispatch => {
       type: AUTH_USER,
       payload: response.data.token
     });
+    localStorage.setItem("token", response.data.token);
     callback();
   } catch (err) {
     dispatch({
@@ -23,6 +24,7 @@ export const signup = ({ email, password }, callback) => async dispatch => {
     });
   }
 };
+
 // export function signup({ email, password }) {
 //   return function(dispatch) {
 //     dispatch({
@@ -30,6 +32,34 @@ export const signup = ({ email, password }, callback) => async dispatch => {
 //     });
 //   };
 // }
+
+export const signin = ({ email, password }, callback) => async dispatch => {
+  try {
+    const response = await axios.post("/signin", { email, password });
+
+    dispatch({
+      type: AUTH_USER,
+      payload: response.data.token
+    });
+    localStorage.setItem("token", response.data.token);
+    callback();
+  } catch (err) {
+    dispatch({
+      type: AUTH_ERROR,
+      payload: "Invalid login details."
+    });
+  }
+};
+export const signout = () => {
+  //clear the local storage related to token
+  localStorage.removeItem("token");
+
+  return {
+    type: AUTH_USER,
+    payload: ""
+  };
+};
+
 export function saveComment(comment) {
   return {
     type: SAVE_COMMENT,

@@ -23,8 +23,9 @@ export default ChildComponent => {
     }
   }
   const mapStateToProps = state => {
+    console.log("in hoa token", state.auth);
     return {
-      auth: state.auth
+      auth: state.auth.authenticated
     };
   };
   return connect(mapStateToProps)(ComposedComponent);
